@@ -1,4 +1,4 @@
-# Salcuimple Calculator
+# Simple Calculator
 
 Una cladora sencilla desarrollada con React, Tailwind CSS y TypeScript.
 

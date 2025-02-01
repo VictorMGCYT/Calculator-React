@@ -4,17 +4,17 @@ function Calculator({ text, asignarValore, limpiarDatos, calcular}: {text: strin
 
     return (
         <>
-            <div className='mt-40 w-[400px] mr-auto ml-auto border-2 p-4 rounded-2xl shadow-[10px_10px_20px_rgba(0,0,0,0.7)]'>
+            <div className='w-[350px] mt-30 md:w-[400px] mr-auto ml-auto border-2 p-4 rounded-2xl shadow-[10px_10px_20px_rgba(0,0,0,0.7)]'>
 
-                <div className='mb-4 ml-auto mr-auto w-[350px] text-right'>
+                <div className='w-[300px] mb-4 md:w-[350px] ml-auto mr-auto  text-right'>
                     <input
                     className='w-full text-right border p-2 rounded-[10px]'
                     type="text" placeholder='Operación' value={text}
                     disabled/>
                 </div>
 
-                <div className='container 
-                ml-auto mr-auto w-[350px] 
+                <div className='container w-[300px] ml-auto mr-auto
+                md:w-[350px] 
                 grid grid-cols-4 gap-4 text-center 
                 grid-rows-5'>
                     <button onClick={() => asignarValore('+')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>+</button>

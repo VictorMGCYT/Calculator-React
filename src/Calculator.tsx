@@ -1,4 +1,89 @@
-;
+
+const generalClass = 'rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'
+const classResult = 'rounded-[10px] row-span-4 col-span-1 bg-blue-300 hover:bg-blue-600 cursor-pointer'
+
+const botones = [{
+    id: 1,
+    value: '+',
+    generalClass: generalClass
+},
+{
+    id: 2,
+    value: '-',
+    generalClass: generalClass
+},
+{
+    id: 3,
+    value: '*',
+    generalClass: generalClass
+},
+{
+    id: 4,
+    value: '/',
+    generalClass: generalClass
+},
+{
+    id: 5,
+    value: '7',
+    generalClass: generalClass
+},
+{
+    id: 6,
+    value: '8',
+    generalClass: generalClass
+},
+{
+    id: 7,
+    value: '9',
+    generalClass: generalClass
+},
+{
+    id: 8,
+    value: '=',
+    generalClass: classResult
+},
+{
+    id: 9,
+    value: '4',
+    generalClass: generalClass
+},
+{
+    id: 10,
+    value: '5',
+    generalClass: generalClass
+},
+{
+    id: 11,
+    value: '6',
+    generalClass: generalClass
+},
+{
+    id: 12,
+    value: '1',
+    generalClass: generalClass
+},
+{
+    id: 13,
+    value: '2',
+    generalClass: generalClass
+},
+{
+    id: 14,
+    value: '3',
+    generalClass: generalClass
+},
+{
+    id: 15,
+    value: '0',
+    generalClass: generalClass
+},
+{
+    id: 16,
+    value: '.',
+    generalClass: generalClass
+}]
+
+
 function Calculator({ text, asignarValore, limpiarDatos, calcular}: {text: string,asignarValore: any, limpiarDatos: any, calcular: any}) {
   
 
@@ -17,22 +102,21 @@ function Calculator({ text, asignarValore, limpiarDatos, calcular}: {text: strin
                 md:w-[350px] 
                 grid grid-cols-4 gap-4 text-center 
                 grid-rows-5'>
-                    <button onClick={() => asignarValore('+')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>+</button>
-                    <button onClick={() => asignarValore('-')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>-</button>
-                    <button onClick={() => asignarValore('*')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>*</button>
-                    <button onClick={() => asignarValore('/')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>/</button>
-                    <button onClick={() => asignarValore('7')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>7</button>
-                    <button onClick={() => asignarValore('8')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>8</button>
-                    <button onClick={() => asignarValore('9')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>9</button>
-                    <button onClick={calcular} className='rounded-[10px] row-span-4 col-span-1 bg-blue-300 hover:bg-blue-600 cursor-pointer'>=</button>
-                    <button onClick={() => asignarValore('4')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>4</button>
-                    <button onClick={() => asignarValore('5')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>5</button>
-                    <button onClick={() => asignarValore('6')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>6</button>
-                    <button onClick={() => asignarValore('1')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>1</button>
-                    <button onClick={() => asignarValore('2')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>2</button>
-                    <button onClick={() => asignarValore('3')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>3</button>
-                    <button onClick={() => asignarValore('0')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>0</button>
-                    <button onClick={() => asignarValore('.')} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>.</button>
+
+                    {botones.map((boton) => {
+
+                        if(boton.value === '='){
+                            return (
+                                <button key={boton.id} onClick={calcular} className={boton.generalClass}>{boton.value}</button>
+                            )
+                        }
+                        else{
+                            return (
+                                <button key={boton.id} onClick={() => asignarValore(boton.value)} className={boton.generalClass}>{boton.value}</button>
+                            )
+                        }
+                    })}
+
                     <button onClick={() => limpiarDatos()} className='rounded-[10px] hover:bg-gray-400 bg-gray-200 pt-2 pb-2 cursor-pointer'>C</button>
                 </div>
 
